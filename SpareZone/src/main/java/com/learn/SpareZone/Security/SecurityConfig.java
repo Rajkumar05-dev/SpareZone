@@ -36,13 +36,18 @@ public class SecurityConfig {
 	        return config;
 	    }))
 		.authorizeHttpRequests(req->
-		req.requestMatchers(
-		        "/users/register",
-		        "/auth/login",
-		       
-		         "/users/*/check"
-		).permitAll()
-		.anyRequest().authenticated());
+		
+	    req.requestMatchers(
+	    		"/error",  
+	            "/users/register",
+	            "/auth/login",
+	            "/users/*/check",
+	            "/vehicle",
+	            "/vehicle/**"
+	    ).permitAll()
+	    .anyRequest().authenticated()
+	);
+
 
 		 httpSecurity.exceptionHandling(authentication->
 		 authentication.authenticationEntryPoint(authEntryPointJwt));
