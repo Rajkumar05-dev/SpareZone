@@ -6,4 +6,5 @@ import com.learn.SpareZone.Dtos.ProductsDto;
 
 public interface ProductsService {
 List<ProductsDto> serachProduct(String name);
+ProductsDto assignCategory(Long pid,Long cid);
 }
