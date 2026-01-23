@@ -10,6 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -50,7 +51,7 @@ public class User implements UserDetails {
 	@ManyToOne
 	private Role role;
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@JsonBackReference
+	@JsonManagedReference
 	private Cart cart;
 
 	
