@@ -2,8 +2,6 @@ package com.learn.SpareZone.Entities;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +20,7 @@ public class Cart {
     // ✅ FK column MUST be different from PK
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false, unique = true)
-    @JsonManagedReference
+   
     private User user;   // 🔥 name changed from userId → user
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)

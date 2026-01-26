@@ -1,6 +1,5 @@
 package com.learn.SpareZone.Entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +25,7 @@ public class CartItem {
 	private Cart cart;
 	@ManyToOne 
 	@JoinColumn(name="product_id")
-	@JsonBackReference
+
     private Products product ;
 	
 	private int quantity;

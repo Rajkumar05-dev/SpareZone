@@ -1,7 +1,5 @@
 package com.learn.SpareZone.Dtos;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartDto {
-	 private Long cartId;
-	 private String userId;
-	 private List<CartItemDto> items;
-	 private double totalAmount;
+public class AddToCartDto {
+	private String userId;
+	private long productId;
+	private int quantity;
 }
