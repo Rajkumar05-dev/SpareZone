@@ -3,7 +3,6 @@ package com.learn.SpareZone.Repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.learn.SpareZone.Dtos.ProductsDto;
 import com.learn.SpareZone.Entities.Products;
 import java.util.List;
 

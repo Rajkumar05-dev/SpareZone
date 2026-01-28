@@ -1,28 +1,36 @@
 package com.learn.SpareZone.Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-@Data
+import jakarta.persistence.*;
+import lombok.*;
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(exclude = {"user", "cartItems"})
 public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @EqualsAndHashCode.Include
     private Long id;
 
-    // ✅ FK column MUST be different from PK
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false, unique = true)
-   
-    private User user;   // 🔥 name changed from userId → user
+    @JsonManagedReference
+    private User user;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CartItem> cartItems;
+    @OneToMany(
+        mappedBy = "cart",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<CartItem> cartItems = new ArrayList<>();
 }

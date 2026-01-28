@@ -22,28 +22,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Products {
-	    @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long productId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long productId;
 
-	    private String name;
-	    private String partNumber;
-	    private Double price;
-	    private Integer stock;
+	private String name;
+	private String partNumber;
+	private Double price;
+	private Integer stock;
 
-	    @Column(length = 1000)
-	    private String description;
-	    
-	    @ManyToOne
-	    @JoinColumn(name = "category_id")
-	    @JsonManagedReference
-	    private Category category;
-	    
-	    @OneToMany
-	    @JsonBackReference
-	    private List<CartItem> cartItems;
+	@Column(length = 1000)
+	private String description;
 
-	    
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	@JsonManagedReference
+	private Category category;
 
-	    
+	@OneToMany
+	@JsonBackReference
+	private List<CartItem> cartItems;
+	@OneToMany
+	private List<OrderItem> orderItems;
+
 }
