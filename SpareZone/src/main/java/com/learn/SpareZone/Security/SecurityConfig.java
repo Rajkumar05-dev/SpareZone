@@ -49,12 +49,14 @@ public class SecurityConfig {
                 		    "/vehicle/**",
                 		    "/products",
                 		    "/products/**",
+                		    "/products/*/image",
                 		    "/categorys/",
                 		    "/categorys/**",
                 		    "/cart/**",
                 		    "/cart-item/**",
                 		    "/orders/**",
                 		    "/order-items/**"
+                		    
                 ).permitAll()
                 // ALL OTHER endpoints need authentication
                 .anyRequest().authenticated()

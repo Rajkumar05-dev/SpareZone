@@ -30,6 +30,7 @@ public class Products {
 	private String partNumber;
 	private Double price;
 	private Integer stock;
+	private String productsImage;
 
 	@Column(length = 1000)
 	private String description;
